@@ -24,7 +24,8 @@ def add_bbox_padding(bbox, margin=5):
         bbox[2] + margin,
         bbox[3] + margin]
 
-def select_handler(img, evt: gr.SelectData):
+
+def select_handler(img, evt: gr.SelectData): 
     faces = app.get(img)
     faces = sorted(faces, key = lambda x : x.bbox[0])
     cropped_image = []
@@ -38,8 +39,9 @@ def select_handler(img, evt: gr.SelectData):
             # print("True ", face_index)
             # print("Bbox org: ", box)
             # Add ~25% margin to the box so the face is recognized correctly
-            margin = int((box[2]-box[0]) * 0.25)
+            margin = int((box[2]-box[0]) * 0.35)
             box = add_bbox_padding(box,margin)
+            box = np.clip(box,0,None)
             print("Bbox exp: ", box)
             sel_face_index = face_index            
             cropped_image = img[box[1]:box[3],box[0]:box[2]]
@@ -142,7 +144,7 @@ def swap_video_fct(video_path, output_path, source_face, destination_face, toler
         return out_path
     else:
         return cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
+ins_get_image
 
 def analyze_video(video_path):
     cap = cv2.VideoCapture(video_path)
