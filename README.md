@@ -1,6 +1,8 @@
 # Face Swap UI
 A browser interface based on Gradio for the Insightface face swap functionality
 
+https://github.com/TheMasterFX/face-swap-ui/assets/12451336/7adde181-ac2d-40bc-93fe-15000b9706c2
+
 ## Overview
 The goal of this webui is to make it as easy as possible to create deepfakes using the Insightface framework. The UI provides a swap functionality for Images and Video.
 
